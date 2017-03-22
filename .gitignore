@@ -1,0 +1,37 @@
+# Generic
+
+all
+Desktop
+Downloads
+Pictures
+Movies
+Music
+
+# Linux/Debian/Ubuntu
+
+.ICEauthority
+.Xauthority
+.cache/
+.config/
+.dmrc
+.gconf/
+.local/
+.mozilla/
+.pam_environment
+.pki/
+.profile
+.ssh/
+.sudo_as_admin_successful
+.tmpvim/
+.vim/
+.viminfo
+.vimrc.plugs
+.xinputrc
+.xsession-errors
+.xsession-errors.old
+.yadm/config
+.yadm/repo.git/
+.zcompdump
+.zsh_history
+examples.desktop
+
