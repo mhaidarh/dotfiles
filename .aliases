@@ -59,19 +59,6 @@ alias f="find . -print | grep -i"
 alias gi="grep -inR"
 alias ag="ag -i"
 
-# arch
-alias install="pacaur -S"
-alias i="install"
-alias remove="pacaur -r"
-alias r="remove"
-
-# mac
-alias install="brew install"
-alias i="install"
-alias remove="brew uninstall"
-alias r="remove"
-alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
-
 # Programming
 alias py="python"
 alias no="node"
@@ -138,21 +125,36 @@ if [ ! $(uname -s) = "Darwin" ]; then
 fi
 
 # apt-get
-#alias add="sudo add-apt-repository -y"
-#alias purge="sudo ppa-purge"
-#alias update="sudo apt-get update"
-#alias upgrade="sudo apt-get upgrade"
-#alias install="sudo apt-get install -y --force-yes"
-#alias installf="sudo apt-get install -f --fix-missing"
-#alias remove="sudo apt-get remove"
-#alias autoremove="sudo apt-get autoremove"
-#alias uninstall="sudo apt-get autoremove"
-#alias hold="sudo apt-mark hold"
-#alias search="sudo apt-cache search"
-#alias i="install"
-#alias un="uninstall"
-#alias up="update"
-#alias upg="upgrade"
+alias add="sudo add-apt-repository -y"
+alias purge="sudo ppa-purge"
+alias update="sudo apt-get update"
+alias upgrade="sudo apt-get upgrade"
+alias install="sudo apt-get install -y --force-yes"
+alias installf="sudo apt-get install -f --fix-missing"
+alias remove="sudo apt-get remove"
+alias autoremove="sudo apt-get autoremove"
+alias uninstall="sudo apt-get autoremove"
+alias hold="sudo apt-mark hold"
+alias search="sudo apt-cache search"
+alias i="install"
+alias un="uninstall"
+alias up="update"
+alias upg="upgrade"
+
+# arch
+alias install="pacaur -S"
+alias i="install"
+alias remove="pacaur -r"
+alias r="remove"
+
+# mac
+#alias install="brew install"
+#alias remove="brew uninstall"
+#alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
+
+# all
+alias i="install"
+alias r="remove"
 
 # package
 alias dp="sudo dpkg -i"
