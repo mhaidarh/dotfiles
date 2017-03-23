@@ -1,0 +1,219 @@
+# ==============================================================================
+# .aliases
+# ==============================================================================
+
+# Unix
+# alias sudo="sudo "
+alias s="source"
+alias p="pwd"
+alias tlf="tail -f"
+alias ln="ln -v"
+alias md="mkdir"
+alias mkdir="mkdir -p"
+alias ...="../.."
+alias l="ls -CF"
+alias la='ls -A'
+alias ll="ls -AlFh"
+alias -g G="| grep"
+alias -g M="| less"
+alias -g L="| wc -l"
+alias -g ONE="| awk '{ print \$1}'"
+alias aj="autojump"
+alias c="cd"
+alias cdd="cd -"
+alias u="umount"
+alias wc="wc -l"
+alias h="history"
+alias to="touch"
+alias crontab="VIM_CRONTAB=true crontab"
+alias y="yadm"
+
+# Network
+alias ping="ping -c 5"
+alias pi="ping google.com"
+
+# Vim/NeoVim
+alias nv="nvim"
+alias vim="vim"
+alias v="vim"
+alias vim="vim -u ~/.vimrc"
+
+# Edit
+alias e="$EDITOR"
+alias v="$VISUAL"
+alias ge="gedit"
+alias atom="atom ."
+alias a="atom"
+alias sub="sublime."
+
+# File
+alias cat="cat"
+#alias cp="rsync -ahPvW"
+#alias cp="cp -au"
+#alias cp="gcp"
+#alias rm="gomi"
+
+# Search
+# alias f="find . -print | grep -i"
+alias f="find . -print | grep -i"
+alias gi="grep -inR"
+alias ag="ag -i"
+
+# arch
+alias install="pacaur -S"
+alias i="install"
+alias remove="pacaur -r"
+alias r="remove"
+
+# mac
+alias install="brew install"
+alias i="install"
+alias remove="brew uninstall"
+alias r="remove"
+alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"
+
+# Programming
+alias py="python"
+alias no="node"
+alias npmi="npm install"
+alias npmis="npm install -S"
+alias npmid="npm install -D"
+alias npmig="npm install -g"
+alias y="yarn"
+alias ya="yarn add"
+alias yr="yarn remove"
+alias yag="yarn global add"
+
+# Command Line
+alias betty="$HOME/.dotfiles/betty/main.rb"
+
+# File
+alias na="nautilus"
+alias th="thunar"
+
+# curl
+alias curlo="curl -O -J -L"
+
+# wget
+alias wg="wget"
+alias wgc="wget -c"
+alias wgi="wget -c -i"
+alias wgo="wget -c -O"
+
+# soundscrape
+alias so="soundscrape"
+
+# viddl-rb
+alias vid="viddl-rb"
+
+# git
+alias g="git"
+alias ga='git add'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gcm='git commit -m'
+alias ghp="git push github master; git checkout gh-pages; git rebase master; git push github gh-pages; git checkout master"
+alias gl='git pull'
+alias gp='git push -A'
+alias gst='git status -sb'
+#alias gs='git stash'
+alias grma='git remote add'
+alias gd='git diff | $GIT_EDITOR -'
+alias gmv='git mv'
+alias grm='git rm'
+alias gho='$(git remote -v 2> /dev/null | grep github | sed -e "s/.*git\:\/\/\([a-z]\.\)*/\1/" -e "s/\.git$//g" -e "s/.*@\(.*\)$/\1/g" | tr ":" "/" | tr -d "\011" | sed -e "s/^/open http:\/\//g")'
+#gcl() {
+#  git cl "$@" && cd "$@"
+#}
+
+# hg
+alias hgst='hg status'
+alias hgd='hg diff | $GIT_EDITOR -'
+alias hgo='hg outgoing'
+
+# Simulate OSX's pbcopy and pbpaste on other platforms
+if [ ! $(uname -s) = "Darwin" ]; then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+fi
+
+# apt-get
+#alias add="sudo add-apt-repository -y"
+#alias purge="sudo ppa-purge"
+#alias update="sudo apt-get update"
+#alias upgrade="sudo apt-get upgrade"
+#alias install="sudo apt-get install -y --force-yes"
+#alias installf="sudo apt-get install -f --fix-missing"
+#alias remove="sudo apt-get remove"
+#alias autoremove="sudo apt-get autoremove"
+#alias uninstall="sudo apt-get autoremove"
+#alias hold="sudo apt-mark hold"
+#alias search="sudo apt-cache search"
+#alias i="install"
+#alias un="uninstall"
+#alias up="update"
+#alias upg="upgrade"
+
+# package
+alias dp="sudo dpkg -i"
+alias dpr="sudo dpkg -r"
+PIP_DOWNLOAD_CACHE="~/.pipcache"
+PIP_USE_MIRRORS=true
+
+# rm
+alias delete="trash"
+alias del="delete"
+alias rm="echo Use 'del', or the full path i.e. '/bin/rm'"
+
+# tmux
+alias t="tmux"
+alias ta="tmux attach -t"
+alias tx="tmuxinator"
+alias txp="tmuxp load"
+
+# sql
+
+# server
+alias live="live-server"
+alias server="live-server"
+
+# json
+alias j="json"
+alias pj="prettyjson"
+
+# thefuck
+eval "$(thefuck --alias)"
+eval "$(thefuck --alias wow)"
+
+# Docker
+alias dps="docker ps -a" # list all containers
+alias dimages="docker images" # list all images
+alias dkill="docker kill"
+alias dstop="docker stop $(docker ps -a -q)" # stop all containers
+alias dclean='docker rm $(docker ps --no-trunc -aq)' # remove all containers
+alias dcleanimages='docker rmi $(docker images --filter dangling=true --quiet)' # deletes all your downloaded images
+
+# Meteor
+#alias m="meteor"
+#alias ms="meteor search"
+#alias ma="meteor add"
+#alias mr="meteor remove"
+#alias mu="meteor update"
+
+# Bundler
+# alias b="bundle"
+
+# Tests and Specs
+# alias t="ruby -I test"
+# alias cuc="bundle exec cucumber"
+
+# Rails
+# alias migrate="rake db:migrate db:rollback && rake db:migrate db:test:prepare"
+# alias m="migrate"
+# alias rk="rake"
+# alias s="rspec"
+# alias z="zeus"
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local
