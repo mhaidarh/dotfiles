@@ -20,7 +20,6 @@ all
 # ------------------------------------------------------------------------------
 # linux/debian/ubuntu
 
-.atom/
 .gnome/
 .ICEauthority
 .Xauthority
@@ -119,12 +118,12 @@ Session.vim
 init.vim
 
 # atom
-!.atom/
 .atom/*
-!.atom/config.cson
-!.atom/snippets.cson
-!.atom/packages-list.txt
-!.atom/install.sh
+!.atom/
+!.atom/*.coffee
+!.atom/*.cson
+!.atom/*.less
+!.atom/*list*
 
 # IntelliJ
 *.iml
