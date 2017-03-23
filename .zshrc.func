@@ -1,0 +1,133 @@
+# =============
+# zsh functions
+# =============
+
+# --------------------------------------
+# mkc: Shorcut to make or move directory/file
+# --------------------------------------
+
+function mkc {
+  if [ ! -n "$1" ]; then
+    echo "Enter a directory name"
+  elif [ -d $1 ]; then
+    echo "\`$1' already exists"
+  else
+    mkdir $1 && cd $1
+  fi
+}
+
+# --------------------------------------
+# gclc: Shorcut to git clone then cd to it
+# --------------------------------------
+
+function gclc {
+  if [ ! -n "$2" ]; then
+    echo "Enter a directory name"
+  elif [ -d $2 ]; then
+    echo "\`$2' already exists"
+  else
+    git clone $1 $2 && cd $2
+  fi
+}
+
+# --------------------------------
+# Extract various kinds of archive
+# --------------------------------
+
+extract() {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2) tar xjf $1 ;;
+      *.tar.gz)  tar xzf $1 ;;
+      *.bz2)     bunzip2 $1 ;;
+      *.rar)     unrar x $1 ;;
+      *.gz)      gunzip $1  ;;
+      *.tar)     tar xf $1  ;;
+      *.tbz2)    tar xjf $1 ;;
+      *.tgz)     tar xzf $1 ;;
+      *.zip)     unzip $1   ;;
+      *.Z)       uncompress $1 ;;
+      *)         echo "'$1' is not available or cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# ---------------------------------------------------
+# A shortcut function that simplifies usage of xclip.
+# Accepts input from either stdin (pipe), or params.
+# ---------------------------------------------------
+
+cb() {
+  local _scs_col="\e[0;32m"; local _wrn_col='\e[1;31m'; local _trn_col='\e[0;33m'
+  # Check that xclip is installed.
+  if ! type xclip > /dev/null 2>&1; then
+    echo -e "$_wrn_col""You must have the 'xclip' program installed.\e[0m"
+  # Check user is not root (root doesn't have access to user xorg server)
+  elif [[ "$USER" == "root" ]]; then
+    echo -e "$_wrn_col""Must be regular user (not root) to copy a file to the clipboard.\e[0m"
+  else
+    # If no tty, data should be available on stdin
+    if ! [[ "$( tty )" == /dev/* ]]; then
+      input="$(< /dev/stdin)"
+    # Else, fetch input from params
+    else
+      input="$*"
+    fi
+    if [ -z "$input" ]; then  # If no input, print usage message.
+      echo "Copies a string to the clipboard."
+      echo "Usage: cb <string>"
+      echo "       echo <string> | cb"
+    else
+      # Copy input to clipboard
+      echo -n "$input" | xclip -selection c
+      # Truncate text for status
+      if [ ${#input} -gt 80 ]; then input="$(echo $input | cut -c1-80)$_trn_col...\e[0m"; fi
+      # Print status.
+      echo -e "$_scs_col""Copied to clipboard:\e[0m $input"
+    fi
+  fi
+}
+
+# ------------------------------------------------
+# Aliases / functions leveraging the cb() function
+# ------------------------------------------------
+
+# Copy contents of a file
+function copy() { cat "$1" | pbcopy; }  
+
+# Copy SSH public key
+alias cssh="copy ~/.ssh/id_rsa.pub"  
+
+# Copy current working directory
+alias cwd="pwd | pbcopy"  
+
+# Copy most recent command in bash history
+alias chs="cat $HISTFILE | tail -n 1 | cb"
+
+# ----------------------------------------------------------
+# vim-superman
+# Read Unix man pages faster than a speeding bullet with Vim
+# ----------------------------------------------------------
+
+#vman() {
+#  vim -c "SuperMan $*"
+#  if [ "$?" != "0" ]; then
+#    echo "No manual entry for $*"
+#  fi
+#}
+
+# ------
+# npm install autosave if no argument
+# ------
+
+function npmi() {
+  if [ -n "$1" ]
+  then
+    npm install --save "$1"
+  else
+    npm install
+  fi
+}
+
