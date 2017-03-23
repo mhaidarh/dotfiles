@@ -1,0 +1,6 @@
+"*":
+  core:
+    autoHideMenuBar: true
+  editor:
+    showIndentGuide: true
+    softWrap: true
