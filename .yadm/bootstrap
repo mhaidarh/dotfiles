@@ -25,6 +25,16 @@ echo "Making temporary folders"
 mkdir ~/.tmp
 mkdir ~/.tmpvim
 
+# ------------------------------------------------------------------------------
+# zsh
+
+# https://github.com/sorin-ionescu/prezto/blob/master/README.md
+echo "Linking prezto configs"
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
 # ==============================================================================
 # apps
 

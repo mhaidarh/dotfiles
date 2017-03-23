@@ -79,7 +79,6 @@ alias npmi="npm install"
 alias npmis="npm install -S"
 alias npmid="npm install -D"
 alias npmig="npm install -g"
-alias y="yarn"
 alias ya="yarn add"
 alias yr="yarn remove"
 alias yag="yarn global add"
@@ -183,23 +182,23 @@ alias j="json"
 alias pj="prettyjson"
 
 # thefuck
-eval "$(thefuck --alias)"
-eval "$(thefuck --alias wow)"
+# eval "$(thefuck --alias)"
+# eval "$(thefuck --alias wow)"
 
 # Docker
-alias dps="docker ps -a" # list all containers
-alias dimages="docker images" # list all images
-alias dkill="docker kill"
-alias dstop="docker stop $(docker ps -a -q)" # stop all containers
-alias dclean='docker rm $(docker ps --no-trunc -aq)' # remove all containers
-alias dcleanimages='docker rmi $(docker images --filter dangling=true --quiet)' # deletes all your downloaded images
+# alias dps="docker ps -a" # list all containers
+# alias dimages="docker images" # list all images
+# alias dkill="docker kill"
+# alias dstop="docker stop $(docker ps -a -q)" # stop all containers
+# alias dclean='docker rm $(docker ps --no-trunc -aq)' # remove all containers
+# alias dcleanimages='docker rmi $(docker images --filter dangling=true --quiet)' # deletes all your downloaded images
 
 # Meteor
-#alias m="meteor"
-#alias ms="meteor search"
-#alias ma="meteor add"
-#alias mr="meteor remove"
-#alias mu="meteor update"
+# alias m="meteor"
+# alias ms="meteor search"
+# alias ma="meteor add"
+# alias mr="meteor remove"
+# alias mu="meteor update"
 
 # Bundler
 # alias b="bundle"
