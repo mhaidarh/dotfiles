@@ -74,7 +74,8 @@ cabbrev qw :wq
 " ------------------------------------------------------------------------------
 " Clipboard
 
-set clipboard=unnamed
+" set clipboard=unnamed
+set clipboard=unnamedplus
 
 " ------------------------------------------------------------------------------
 " Switch windows with two keystrokes

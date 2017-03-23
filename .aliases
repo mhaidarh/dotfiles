@@ -129,23 +129,20 @@ alias add="sudo add-apt-repository -y"
 alias purge="sudo ppa-purge"
 alias update="sudo apt-get update"
 alias upgrade="sudo apt-get upgrade"
-alias install="sudo apt-get install -y --force-yes"
+alias install="sudo apt-get install -y"
+alias instally="sudo apt-get install -y --force-yes"
 alias installf="sudo apt-get install -f --fix-missing"
 alias remove="sudo apt-get remove"
 alias autoremove="sudo apt-get autoremove"
 alias uninstall="sudo apt-get autoremove"
 alias hold="sudo apt-mark hold"
 alias search="sudo apt-cache search"
-alias i="install"
-alias un="uninstall"
-alias up="update"
-alias upg="upgrade"
 
 # arch
-alias install="pacaur -S"
-alias i="install"
-alias remove="pacaur -r"
-alias r="remove"
+#alias install="pacaur -S"
+#alias i="install"
+#alias remove="pacaur -r"
+#alias r="remove"
 
 # mac
 #alias install="brew install"
@@ -155,6 +152,9 @@ alias r="remove"
 # all
 alias i="install"
 alias r="remove"
+alias un="uninstall"
+alias up="update"
+alias upg="upgrade"
 
 # package
 alias dp="sudo dpkg -i"
@@ -172,6 +172,9 @@ alias t="tmux"
 alias ta="tmux attach -t"
 alias tx="tmuxinator"
 alias txp="tmuxp load"
+
+# image
+alias pngquant="pngquant **.png --ext .png --force"
 
 # sql
 
