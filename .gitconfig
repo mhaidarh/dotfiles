@@ -1,8 +1,173 @@
-[push]
-	default = simple
+# ==============================================================================
+# .gitconfig
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# http://git-scm.com
+# http://git-legit.org
+# https://github.com/github/gitignore
+# https://help.github.com/articles/ignoring-files
+# https://help.github.com/articles/dealing-with-line-endings
+# http://gitimmersion.com
+# http://oli.jp/2012/git-powerup
+# http://blog.blindgaenger.net/advanced_git_aliases.html
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+[include]
+	# for local things such [user]
+	path = ~/.gitconfig.local
+
+# ------------------------------------------------------------------------------
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+	autocrlf = input
+	safecrlf = true
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	quotepath = false
+
+# ------------------------------------------------------------------------------
+[credential]
+	helper = cache --timeout=14400
+
+# ------------------------------------------------------------------------------
+[alias]
+	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft	= !legit graft \"$@\"
+	master = checkout master
+	develop = checkout develop
+	a = !git add -A && git status
+	aa = !git add -A && git add -u && git status
+	ac = !git add -A && git commit
+	au = !git add -u && git status
+	al = add --all
+	ap = add --patch
+	b = branch
+	c = commit
+	ca = commit --amend
+	cv = commit -v
+	cl = clone --recursive
+	cl1 = clone --depth=1 --recursive
+	cm = commit -m
+	co = checkout
+	cod = co --
+	cb = checkout -b
+	cs = commit -S
+	d  = log --diff-filter=D -- $1
+	di = diff
+	diff = diff --color-words
+	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+	h = log
+	hist = log
+	history = log --oneline --graph --decorate
+	l  = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar'
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ll = log --stat --abbrev-commit --show-signature
+  lo = log --oneline --graph --decorate
+	push = !git pull && git push
+	p = push
+	pf = push -f
+	pu = push -u
+	pr = !hub pull-request
+	r = !git ls-files -z --deleted | xargs -0 git rm
+	re = reset HEAD
+	rem = remote
+	s = status
+	st = status
+	su = status -u
+	size = count-objects -v
+	up = !git fetch origin && git rebase origin/master
+	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
+	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+	log = !git log --oneline --graph --decorate
+
+# ------------------------------------------------------------------------------
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
+	interactive = auto
+
+# ------------------------------------------------------------------------------
+[init]
+	# templatedir = ~/.git/templates
+
+# ------------------------------------------------------------------------------
+[commit]
+	template = ~/.gitmessage
+
+# ------------------------------------------------------------------------------
 [log]
 	decorate = short
 	abbrevCommit = true
-[include]
-	path = .gitconfig.local
 
+# ------------------------------------------------------------------------------
+[push]
+	default = simple
+
+# ------------------------------------------------------------------------------
+[merge]
+	ff = true
+	tool = p4merge
+
+# ------------------------------------------------------------------------------
+[fetch]
+	prune = true
+
+# ------------------------------------------------------------------------------
+[http]
+	sslverify = false
+
+# ------------------------------------------------------------------------------
+[git-up "bundler"]
+	check = true
+
+# ------------------------------------------------------------------------------
+[diff]
+	algorithm = histogram
+
+# ------------------------------------------------------------------------------
+[multi]
+	groupbyoutput = 1
+
+# ------------------------------------------------------------------------------
+[format]
+  pretty = oneline
+
+# ------------------------------------------------------------------------------
+[branch "master"]
+	rebase = true
+
+# ------------------------------------------------------------------------------
+[branch]
+	autosetuprebase = always
+
+# ------------------------------------------------------------------------------
+[hub]
+	protocol = https
+
+# ------------------------------------------------------------------------------
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+# ------------------------------------------------------------------------------
+[mergetool]
+	keepTemporaries = false
+	prompt = false
+
+# ------------------------------------------------------------------------------
+[diff "image"]
+	command = ~/bin/git-imgdiff

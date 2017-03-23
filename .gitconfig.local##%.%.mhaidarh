@@ -1,4 +1,6 @@
 [user]
 	name = M Haidar Hanif
 	email = git@mhaidarhanif.com
-
+	editor = vim
+	useconfigonly = true
+	signingkey = BED4373460DEF204
