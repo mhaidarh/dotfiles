@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# ------------------------------------------------------------------------
-# submodules 
+# ==============================================================================
+# bootstrap
+
+# ------------------------------------------------------------------------------
+# submodules
 
 # Because Git submodule commands cannot operate without a work tree, they must be run from within $HOME (assuming this is the root of your dotfiles)
 cd "$HOME"
@@ -9,19 +12,67 @@ cd "$HOME"
 echo "Init submodules"
 yadm submodule update --recursive --init
 
-
-# ------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # repo url
 
 echo "Updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:$USER/dotfiles.git"
 
+# ------------------------------------------------------------------------------
+# temporary
 
-# ------------------------------------------------------------------------
+echo "Making temporary folders"
+mkdir ~/.tmp
+mkdir ~/.tmpvim
+
+# ==============================================================================
+# apps
+
+# ------------------------------------------------------------------------------
+# ubuntu
+
+# ------------------------------------------------------------------------------
+# arch
+
+# ------------------------------------------------------------------------------
+# mac
+
+# ==============================================================================
+# terminal
+
+# ------------------------------------------------------------------------------
+# fonts
+
+echo "Installing Powerline fonts"
+git clone https://github.com/powerline/fonts.git ~/.powerline-fonts
+cd ~/.powerline-fonts
+./install.sh
+cd ~
+rm -rf .powerline-fonts
+## change terminal font to 'Hack'
+
+# ------------------------------------------------------------------------------
+# tmux
+
+echo "Configuring tmux"
+
+# ==============================================================================
+# editor
+
+# ------------------------------------------------------------------------------
 # vim
 
 if command -v vim >/dev/null 2>&1; then
-  echo "Bootstraping Vim"
+  echo "Bootstraping Vim with plugins"
   vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
 fi
 
+# ------------------------------------------------------------------------------
+# atom
+
+echo "Installing Atom packages"
+apm install --packages-file ~/atom-packages-list.txt
+
+# ==============================================================================
+# EOF
+# ==============================================================================
