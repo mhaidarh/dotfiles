@@ -45,6 +45,7 @@ all
 .yadm/repo.git/
 .zcompdump
 .zsh_history
+.zhistory
 .node_repl_history
 .npm/
 .oh-my-zsh/
