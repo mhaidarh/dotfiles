@@ -68,6 +68,8 @@ all
 .lesshst
 .mongorc.js
 .webtask
+.yarnrc
+package.json
 
 .node-gyp
 .node_repl_history
