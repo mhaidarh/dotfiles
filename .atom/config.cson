@@ -1,6 +1,84 @@
 "*":
+  "atom-beautify":
+    css:
+      align_assignments: true
+      beautify_on_save: true
+      indent_size: 2
+    general:
+      _analyticsUserId: "6137fef6-90e7-4293-b15b-331bd6ee4e4c"
+    js:
+      beautify_on_save: true
+      brace_style: "expand"
+      break_chained_methods: true
+      default_beautifier: "ESLint Fixer"
+      indent_size: 2
+    json:
+      indent_size: 2
+    jsx:
+      brace_style: "expand"
+      indent_size: 2
+      jslint_happy: true
+    less:
+      beautify_on_save: true
+      convert_quotes: "single"
+      force_indentation: true
+      indent_size: 2
+      no_lead_zero: true
+  "atom-material-ui":
+    colors:
+      abaseColor: "#2196f3"
+      genAccent: true
+      paintCursor: true
+      predefinedColor: "Blue"
+    fonts: {}
+    tabs:
+      compactTabs: true
+      noTabMinWidth: true
+      tintedTabBar: true
+    treeView:
+      blendTabs: true
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
   core:
     autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "linter-js-standard"
+      "react"
+      "vim-mode-plus"
+      "spell-check"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "atom-material-ui"
+      "oceanic-next"
+    ]
   editor:
+    fontFamily: "'Fira Code'"
+    scrollPastEnd: true
     showIndentGuide: true
+    showInvisibles: true
     softWrap: true
+    softWrapAtPreferredLineLength: true
+  "language-babel":
+    allowLocalOverride: true
+    autoIndentJSX: true
+  linter: {}
+  "linter-ui-default":
+    showProviderName: true
+  "markdown-pdf":
+    format: "Legal"
+  react:
+    enabledForAllJavascriptFiles: true
+  "standard-formatter":
+    formatOnSave: true
+  "vim-mode-plus":
+    flashOnMoveToOccurrence: true
+    startInInsertMode: true
+  welcome:
+    showOnStartup: false
+".coffee.jsx.source":
+  editor:
+    autoIndentOnPaste: true

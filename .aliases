@@ -4,8 +4,8 @@
 
 # Unix
 # alias sudo="sudo "
-alias s="source"
-alias p="pwd"
+alias cl="clear"
+alias so="source"
 alias tlf="tail -f"
 alias ln="ln -v"
 alias md="mkdir"
@@ -43,8 +43,8 @@ alias e="$EDITOR"
 alias v="$VISUAL"
 alias ge="gedit"
 alias atom="atom ."
-alias a="atom"
-alias sub="sublime."
+alias at="atom"
+alias sub="sublime ."
 
 # File
 alias cat="cat"
@@ -54,8 +54,7 @@ alias cat="cat"
 #alias rm="gomi"
 
 # Search
-# alias f="find . -print | grep -i"
-alias f="find . -print | grep -i"
+alias ff="find . -print | grep -i"
 alias gi="grep -inR"
 alias ag="ag -i"
 
@@ -190,6 +189,19 @@ alias pj="prettyjson"
 # eval "$(thefuck --alias)"
 # eval "$(thefuck --alias wow)"
 
+# fasd
+alias a='fasd -a'        # any
+alias s='fasd -si'       # show / search / select
+alias d='fasd -d'        # directory
+alias f='fasd -f'        # file
+alias sd='fasd -sid'     # interactive directory selection
+alias sf='fasd -sif'     # interactive file selection
+alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+alias zz='fasd_cd -d -i' # cd with interactive selection
+
+# Nginx
+alias n="nginx"
+
 # Docker
 # alias dps="docker ps -a" # list all containers
 # alias dimages="docker images" # list all images
@@ -221,3 +233,4 @@ alias pj="prettyjson"
 
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
+

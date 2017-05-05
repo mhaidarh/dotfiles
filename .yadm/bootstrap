@@ -65,6 +65,7 @@ rm -rf .powerline-fonts
 # tmux
 
 echo "Configuring tmux"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # ==============================================================================
 # editor

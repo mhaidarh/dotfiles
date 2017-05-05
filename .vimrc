@@ -11,29 +11,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 " ------------------------------------------------------------------------------
-" declare plugins
-
-if plug#begin()
-
-  Plug 'airblade/vim-gitgutter'
-  Plug 'c9s/perlomni.vim', { 'for': 'perl' }
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'vim-syntastic/syntastic'
-  Plug 'yggdroot/indentLine'
-
-  " ignore these on older versions of vim
-  if v:version >= 703
-    Plug 'gorodinskiy/vim-coloresque'
-    Plug 'jamessan/vim-gnupg'
-  endif
-  if v:version >= 704
-    Plug 'vim-pandoc/vim-pandoc-syntax'
-  endif
-
-  call plug#end()
-endif
-
-" ------------------------------------------------------------------------------
 " Initiate good settings, rather then Vi settings
 
 set nocompatible
@@ -175,12 +152,22 @@ set undofile
 " set nowritebackup
 
 " ------------------------------------------------------------------------------
-" colors
+" themes/colors
+
+syntax enable
+" for vim 7
+set t_Co=256
+
+" for vim 8
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+" colorscheme OceanicNext
 
 " Access colors present in 256 colorspace
 " set background=dark
 " let base16colorspace=256
-" colorscheme base16-default
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -334,3 +321,4 @@ endif
 if filereadable($HOME . "/.vimrc.snippets")
   source ~/.vimrc.snippets
 endif
+

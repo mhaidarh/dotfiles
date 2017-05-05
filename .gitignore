@@ -21,6 +21,8 @@ all
 # linux/debian/ubuntu
 
 .gnome/
+.gitkraken/
+.macromedia/
 .ICEauthority
 .Xauthority
 .cache/
@@ -44,10 +46,37 @@ all
 .yadm/config
 .yadm/repo.git/
 .zcompdump
+.zcompcache
 .zsh_history
 .zhistory
+.bash_history
+.python_history
+.zompcache
+.wget-hsts
+.mrconfig
+.pgadmin*
+.pgpass
+.dbshell
+.mysql_history
+.apport-ignore.xml
+.gitbook
+.docker/config.json
+.babel.json
+.fasd
+.fzf
+.httpie/config.json
+.lesshst
+.mongorc.js
+.webtask
+
+.node-gyp
 .node_repl_history
+.v8flags*
 .npm/
+.pm2*
+
+.cpan
+.psensor
 .oh-my-zsh/
 .pm2/
 .powerline-fonts/
@@ -58,6 +87,7 @@ all
 .zsh-update
 .zshrc.pre-oh-my-zsh
 .sdkman
+.gnupg
 examples.desktop
 
 # ------------------------------------------------------------------------------
